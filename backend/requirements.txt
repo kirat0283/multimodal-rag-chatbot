@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+langchain
+langchain-community
+langchain-huggingface
+langchain-ollama
+faiss-cpu
+pypdf
+transformers
+torch
+librosa
+openai-whisper
+python-multipart
+pillow
