@@ -41,7 +41,7 @@ class MultimodalProcessor:
         # Load BLIP for Image Captioning
         self.image_model = pipeline(
             "image-to-text",
-            model="Salesforce/blip-image-captioning -large"
+            model="Salesforce/blip-image-captioning-large"
         )
 
     def transcribe_audio(self, audio_path):

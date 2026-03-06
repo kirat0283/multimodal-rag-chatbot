@@ -5,13 +5,18 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.retrievers import ParentDocumentRetriever
 from langchain.storage import InMemoryStore
-from langchain_community.llms import Ollama
+from langchain_groq import ChatGroq
+
 
 
 class RAGPipeline:
     def __init__(self, data_folder="./data"):
         self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-        self.llm = Ollama(model="llama3", temperature=0)
+        self.llm = ChatGroq(
+    model="llama-3.1-8b-instant",
+    groq_api_key=os.getenv("GROQ_API_KEY"),
+    temperature=0
+)
         
         # Parent-Child Splitters
         self.parent_splitter = RecursiveCharacterTextSplitter(chunk_size=2000)
@@ -49,4 +54,5 @@ class RAGPipeline:
         Answer:"""
         
         response = self.llm.invoke(prompt)
-        return response, sources
+        return response.content, sources
+
