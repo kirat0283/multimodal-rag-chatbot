@@ -1,28 +1,3 @@
-# import whisper
-# from transformers import pipeline
-# from PIL import Image
-# import torch
-
-# class MultimodalProcessor:
-#     def __init__(self):
-#         # Load Whisper for Audio (Local)
-#         self.audio_model = whisper.load_model("base")
-#         # Load BLIP for Image Captioning (Local)
-#         self.image_model = pipeline("image-to-text", model="Salesforce/blip-image-captioning-large")
-
-
-
-#     def transcribe_audio(self, audio_path):
-#         result = self.audio_model.transcribe(audio_path)
-#         return result['text']
-
-#     def caption_image(self, image_path):
-#         image = Image.open(image_path).convert("RGB")
-#         result = self.image_model(image)
-#         return result[0]['generated_text']
-
-
-
 
 import whisper
 from transformers import pipeline
